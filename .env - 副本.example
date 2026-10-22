@@ -1,6 +1,0 @@
-# 模型网关地址（OpenAI 兼容格式）
-LLM_BASE_URL=https://your-gateway-url/v1
-# API 密钥
-LLM_API_KEY=your-api-key
-# 使用的模型名称
-LLM_MODEL=your-model-name
