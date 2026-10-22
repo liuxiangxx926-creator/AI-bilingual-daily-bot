@@ -1,0 +1,9 @@
+# 敏感配置，绝对不能上传
+.env
+
+# Python 缓存垃圾文件
+__pycache__/
+*.pyc
+
+# IDE 配置文件
+.vscode/
