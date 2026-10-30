@@ -1,9 +1,8 @@
 name: 每日生成日报
 
+# 日报生成已改为本地定时任务（Windows 任务计划 AI-Daily-Report）。
+# GitHub Actions 服务器无法访问模型网关（DNS 不解析），故仅保留手动触发用于提交日报。
 on:
-  schedule:
-    # 每天北京时间 9 点自动运行（UTC 时间 1 点）
-    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
