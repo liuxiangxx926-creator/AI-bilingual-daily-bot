@@ -23,6 +23,18 @@ jobs:
       - name: 安装依赖
         run: pip install feedparser python-dotenv openai
 
+      - name: 检查 Secrets 是否配置
+        run: |
+          python - <<'EOF'
+          import os
+          for k in ["LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"]:
+              v = os.getenv(k, "")
+              if not v.strip():
+                  print(f"{k}: 未配置!")
+              else:
+                  print(f"{k}: 已配置, 长度{len(v)}, 前后有空格: {v != v.strip()}")
+          EOF
+
       - name: 生成日报
         env:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
