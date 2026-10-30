@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 from src.fetcher import fetch_daily_news
 from src.daily_agent import generate_report
+from src.notifier import notify_all
 
 def main():
     print("正在抓取今日资讯...")
@@ -26,6 +27,9 @@ def main():
         f.write("\n\n---\n*本日报由 AI 自动生成，基于公开 RSS 资讯整理*")
 
     print(f"✅ 日报已生成：{file_path}")
+
+    # 推送到已配置的渠道（飞书 / 邮箱），未配置则自动跳过
+    notify_all(f"AI 行业双语日报 | {today_str}", report_content)
 
 if __name__ == "__main__":
     main()
